@@ -47,4 +47,22 @@ function cancelAuction (uint _passwordPin) onlyNotCanceled notBought public
             timerDays = timerDays + timeChange;
         }
     }
+
+    function buyout (uint payment) onlyNotCanceled notBought public
+    {
+        if (payment > nftBuyoutAmount)
+        {
+            available = false;
+        }
+    }
+
+    // Wins the auction for the specified amount
+    function win (address owner) external payable
+    {
+        //winner = msg.sender;
+        nft.safeTransferFrom(owner, winner, nftId);
+        //seller.transfer(msg.value);
+
+        //emit Win(msg.sender, msg.value);
+    } 
 }
