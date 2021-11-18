@@ -17,4 +17,19 @@ event Win(address winner, uint256 amount);
 
     address payable public winner;
 
+	constructor()
+    {
+        timerDays = 10;
+    }
+        
+    function setNFT (address _nft, uint _nftId, uint _nftBuyoutAmount, address payable beneficiary) public
+    {
+        nft = IERC721(_nft);
+        nftId = _nftId;
+        nftBuyoutAmount = _nftBuyoutAmount;
+        winner = beneficiary;
+        canceled = false;
+        available = true;
+    }
+
 }
