@@ -32,4 +32,19 @@ event Win(address winner, uint256 amount);
         available = true;
     }
 
+function cancelAuction (uint _passwordPin) onlyNotCanceled notBought public
+    {
+        if (_passwordPin == passwordPin)
+        {
+            canceled = true;
+        }
+    }
+    
+    function timeChangeDays (uint timeChange, uint _passwordPin) onlyNotCanceled notBought public
+    {
+        if (_passwordPin == passwordPin)
+        {
+            timerDays = timerDays + timeChange;
+        }
+    }
 }
