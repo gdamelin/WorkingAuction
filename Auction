@@ -5,4 +5,16 @@ import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 // Test simple win auction
 contract WinAuction {
 
+event Win(address winner, uint256 amount);
+
+    IERC721 public nft;
+    uint public nftId;
+    uint public nftBuyoutAmount;
+    uint private passwordPin;
+    bool private canceled;
+    bool private available;
+    uint timerDays;
+
+    address payable public winner;
+
 }
