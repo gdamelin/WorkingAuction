@@ -64,5 +64,17 @@ function cancelAuction (uint _passwordPin) onlyNotCanceled notBought public
         //seller.transfer(msg.value);
 
         //emit Win(msg.sender, msg.value);
+    }
+
+    modifier onlyNotCanceled
+    {
+        require(!canceled);
+        _;
+    }
+    
+    modifier notBought
+    {
+        require(available);
+        _;
     } 
 }
